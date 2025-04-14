@@ -1,0 +1,13 @@
+﻿services:
+    app:
+        restart: no
+        build:
+            context: .
+        stdin_open: true
+        tty: true
+        environment:
+            CHECKFREQUENCY: 1
+        volumes:
+          - type: bind
+            target: /watchDirectory
+            source: /mnt/c/Dev/VS/GenerateBackgrounds/watch
