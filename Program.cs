@@ -6,7 +6,14 @@
         int checkDelay = int.Parse("" + Environment.GetEnvironmentVariable("CHECKFREQUENCY")) * 1000;
         while (true) {
             Thread.Sleep(checkDelay);
-            RunCheck();
+            try
+            {
+                RunCheck();
+            }catch(Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Stack Trace: " + ex.StackTrace);
+            }
         }
     }
 

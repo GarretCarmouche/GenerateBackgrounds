@@ -1,13 +1,13 @@
-﻿services:
-    app:
-        restart: no
-        build:
-            context: .
+services:
+    generatebackgrounds:
+        container_name: backgrounds
+        image: gcarmouche/generatebackgrounds:latest
+        restart: always
         stdin_open: true
         tty: true
         environment:
-            CHECKFREQUENCY: 1
+            CHECKFREQUENCY: 60
         volumes:
           - type: bind
             target: /watchDirectory
-            source: /mnt/c/Dev/VS/GenerateBackgrounds/watch
+            source: /mnt/Plex/pinchflat
